@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Word Cloud</title>
+    <script src="lib/d3/d3.js" charset="utf-8"></script>
+    <script src="lib/d3/d3.layout.cloud.js"></script>
+    <script src="d3.wordcloud.js"></script>
+  </head>
+  <body style="text-align: center">
+    <h1>Word Cloud</h1>
+    <div id='wordcloud'></div>
+    <p>This is a word cloud! Hover and click some words, and note that one of them is not clickable.</p>
+    <p><a href="https://github.com/wvengen/d3-wordcloud">https://github.com/wvengen/d3-wordcloud</a></p>
+    <script>
+      d3.wordcloud()
+        .size([500, 300])
+        .fill(d3.scale.ordinal().range(["#884400", "#448800", "#888800", "#444400"]))
+        .words([
+            {text: 'the', size: 3789654, href: 'https://duckduckgo.com/?q=the'},
+            {text: 'he', size: 2098762},
+            {text: 'king', size: 57897, href: 'https://duckduckgo.com/?q=king'},
+            {text: 'boy', size: 56975, href: 'https://duckduckgo.com/?q=boy'},
+            {text: 'stringyfy', size: 5, href: 'https://duckduckgo.com/?q=stringify'},
+            {text: 'transducionalify', size: 1, href:' https://duckduckgo.com/?q=transducionalify'}
+        ])
+        .start();
+    </script>
+  </body>
+</html>
+
