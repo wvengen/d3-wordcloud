@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Word Cloud</title>
+    <script src="../lib/d3/d3.js" charset="utf-8"></script>
+    <script src="../lib/d3/d3.layout.cloud.js"></script>
+    <script src="../d3.wordcloud.js"></script>
+    <script src="example.words.js"></script>
+  </head>
+  <body style="text-align: center">
+    <h1>Word Cloud</h1>
+    <div id='wordcloud'></div>
+    <p>This is a word cloud of the first two chapters of Oliver Twist. Some words are clickable.</p>
+    <p><a href="https://github.com/wvengen/d3-wordcloud">https://github.com/wvengen/d3-wordcloud</a></p>
+    <script>
+      d3.wordcloud()
+        .size([500, 300])
+        .fill(d3.scale.ordinal().range(["#884400", "#448800", "#888800", "#444400"]))
+        .words(words)
+        .start();
+    </script>
+  </body>
+</html>
+

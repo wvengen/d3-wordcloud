@@ -6,6 +6,8 @@ There is an amazing [D3](http://www.d3js.org/)
 for creating beautiful wordclouds. But it's not trivial for everyone
 to put it to use. This plugin makes it easy to create such a wordcloud.
 
+![](example/example.png)
+
 Usage
 -----
 
@@ -49,7 +51,7 @@ In addition to this, the following d3-cloud properties are accepted:
 * `padding()`
 
 As a bonus, if a word contains a `href` key, the word will link to the value,
-and the word will become slightly larger when the mouse hovers on top of it (to
+and the word will become slightly larger when the mouse hovers over (to
 indicate that it is clickable, in addition to the mouse hand pointer).
 
 
