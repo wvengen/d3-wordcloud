@@ -26,7 +26,7 @@ A simple html page with a wordcloud might contain:
     <script>
       d3.wordcloud()
         .size([800, 400])
-        .selector('#cloud')
+        .selector('#wordcloud')
         .words([{text: 'word', size: 5}, {text: 'cloud', size: 15}])
         .start();
     </script>
