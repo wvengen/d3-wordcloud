@@ -22,7 +22,7 @@ A simple html page with a wordcloud might contain:
     <script src="d3.wordcloud.js"></script>
   </head>
   <body>
-    <div id='cloud'></div>
+    <div id='wordcloud'></div>
     <script>
       d3.wordcloud()
         .size([800, 400])
