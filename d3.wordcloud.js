@@ -11,7 +11,8 @@
         layout = d3.layout.cloud(),
         fontSize = null,
         svg = null,
-        vis = null;
+        vis = null,
+        onwordclick = undefined;
 
     wordcloud.element = function(x) {
       if (!arguments.length) return element;
@@ -42,6 +43,11 @@
       fill = x == null ? d3.scale.category20b() : x;
       return wordcloud;
     };
+
+    wordcloud.onwordclick = function (func) {
+        onwordclick = func;
+        return wordcloud;
+    }
 
     wordcloud.start = function() {
       init();
@@ -113,20 +119,22 @@
         })
         // clickable words
         .style("cursor", function(d, i) {
-          if (d.href) return 'pointer';
+          if (onwordclick !== undefined) return 'pointer';
         })
         .on("mouseover", function(d, i) {
-          if (d.href) {
+          if (onwordclick !== undefined) {
             d3.select(this).transition().style('font-size', d.size + 3 + 'px');
           }
         })
         .on("mouseout", function(d, i) {
-          if (d.href) {
+          if (onwordclick !== undefined) {
             d3.select(this).transition().style('font-size', d.size + 'px');
           }
         })
         .on("click", function(d, i) {
-          if (d.href) window.location = d.href;
+          if (onwordclick !== undefined) {
+                onwordclick(d,i);
+            }
         });
 
       vis.transition()

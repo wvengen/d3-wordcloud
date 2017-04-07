@@ -50,10 +50,14 @@ In addition to this, the following d3-cloud properties are accepted:
 * `spiral()`, which can be `archimedean` or `rectangular`
 * `padding()`
 
-As a bonus, if a word contains a `href` key, the word will link to the value,
-and the word will become slightly larger when the mouse hovers over (to
-indicate that it is clickable, in addition to the mouse hand pointer).
+Extensions
+* `onwordclick(function(d,i))` provide your own function to call when a word is clicked
 
+```html
+.onwordclick(function(d, i) {
+  window.location = "https://www.google.co.uk/search?q=" + d.text;
+})
+```
 
 Links
 -----
