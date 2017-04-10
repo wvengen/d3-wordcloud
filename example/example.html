@@ -17,7 +17,7 @@
         .fill(d3.scale.ordinal().range(["#884400", "#448800", "#888800", "#444400"]))
         .words(words)
         .onwordclick(function(d, i) {
-          if (d.href != null) { window.location = d.href; }
+          if (d.href) { window.location = d.href; }
         })
         .start();
     </script>
