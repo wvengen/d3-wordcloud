@@ -9,6 +9,7 @@
         scale = 'sqrt',
         fill = d3.scale.category20b(),
         layout = d3.layout.cloud(),
+        rotate = function() {return (~~(Math.random() * 6) - 3) * 30;},
         fontSize = null,
         svg = null,
         vis = null,
@@ -49,6 +50,12 @@
         return wordcloud;
     }
 
+    wordcloud.rotate = function(x) {
+      if (!arguments.length) return rotate;
+      rotate = x == null ? function() {return (~~(Math.random() * 6) - 3) * 30;} : x;
+      return wordcloud
+    };
+
     wordcloud.start = function() {
       init();
       layout.start(arguments);
@@ -63,6 +70,7 @@
         .text(function(d) {
           return d.text;
         })
+        .rotate(rotate)
         .on("end", draw);
 
       svg = element.append("svg");

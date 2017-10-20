@@ -17,6 +17,7 @@
         .size([500, 300])
         .fill(d3.scale.ordinal().range(["#884400", "#448800", "#888800", "#444400"]))
         .words(words)
+        .rotate(function() {return ~~(Math.random() * 2) * 90;})
         .onwordclick(function(d, i) {
           if (d.href) { window.location = d.href; }
         })
@@ -24,4 +25,3 @@
     </script>
   </body>
 </html>
-
