@@ -28,6 +28,7 @@ A simple html page with a wordcloud might contain:
         .size([800, 400])
         .selector('#wordcloud')
         .words([{text: 'word', size: 5}, {text: 'cloud', size: 15}])
+        .rotate(function() {return ~~(Math.random() * 2) * 90;})
         .start();
     </script>
   </body>
@@ -39,6 +40,7 @@ That's all! The following properties are accepted:
 * `element()` an element instead of the previous selector
 * `scale()` a d3 scale for sizing words, e.g. `sqrt`, `log` or `linear`
 * `fill()` a d3 scale for coloring words, e.g. `d3.scale.category20b()`
+* `rotate()` a function that returns the degree of rotation of each word
 * `transitionDuration()` how many milliseconds a resize transation takes
 
 In addition to this, the following d3-cloud properties are accepted:
@@ -55,13 +57,14 @@ Extensions
 
 ```html
 .onwordclick(function(d, i) {
-  window.location = "https://www.google.co.uk/search?q=" + d.text;
+  window.location = "https://www.google.com/search?q=" + d.text;
 })
 ```
 
 Links
 -----
 * The original [d3-cloud](https://github.com/jasondavies/d3-cloud) plugin
+* The enhanced version [d3-wordcloud](https://github.com/wvengen/d3-wordcloud) of plugin
 * [d3-wordcloud](https://github.com/shprink/d3js-wordcloud), example of how to use d3-cloud that this plugin is based on
 * [Article on using d3-cloud](https://weblogs.java.net/blog/manningpubs/archive/2014/11/10/d3-making-word-cloud-effective-graphical-object)
 * Java-based [wordle.net](http://wordle.net), which has inspired the d3-cloud plugin
