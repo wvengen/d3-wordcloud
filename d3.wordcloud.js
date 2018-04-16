@@ -143,6 +143,7 @@
 
     function update() {
       var words = layout.words();
+      words.sort((x, y) => d3.descending(x.size, y.size));
       fontSize = d3.scale[scale]().range([10, 100]);
       if (words.length) {
         fontSize.domain([+words[words.length - 1].size || 1, +words[0].size]);
